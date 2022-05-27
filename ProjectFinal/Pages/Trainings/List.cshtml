@@ -1,0 +1,72 @@
+﻿@page
+@model ProjectFinal.Pages.Trainings.ListModel
+@{
+}
+<form method="post" class="shadow">
+    
+
+<div class=form-group>
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+         <h6 class="text-danger">@Html.ValidationSummary()</h6>
+    </div>
+    <br/>
+
+<table class="table">
+    <thed>
+        <tr>
+            <th scope="col">Training Id</th>
+            <th scope="col">Trainer Id</th>
+            <th scope="col">Trainer Name</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Package Id</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+           
+        </tr>
+    </thed>
+     @if(Model.Trainings==null || Model.Trainings.Count<0)
+            {
+                <tr>
+                    <td colspan=10>No Trainings Found</td>
+                </tr>
+            }
+    <tbody>
+           
+            
+
+            @foreach(var d in Model.Trainings)
+             {
+            <tr>
+                <td>@d.trainingid</td>
+                <td>@d.trainerid</td>
+                <td>@d.trainername</td>
+                <td>@d.customerid</td>
+                <td>@d.customername</td>
+                <td>@d.packageid</td>
+                <td>@d.amount</td>
+                 <td>@d.startdate.ToString("dd-MMM-yyyy")</td>
+                 <td>@d.enddate.ToString("dd-MMM-yyyy")</td>
+                 <td>@d.status</td>
+                   <td>
+                     <a href="/Trainings/Edit/@d.trainingid" class="btn btn-outline-warning" role="button">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        
+                </td>
+                 
+                 
+                 
+           </tr>
+        }
+
+        
+
+    </tbody>
+    
+</table>
+</form>

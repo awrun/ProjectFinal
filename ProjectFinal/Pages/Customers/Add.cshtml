@@ -1,0 +1,57 @@
+﻿@page
+@model ProjectFinal.Pages.Customers.AddModel
+@{
+}
+<h3>Add New</h3>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.customername "></label>
+        <input asp-for="@Model.customername" class="form-control" />
+    </div>
+      <div class="form-group">
+        <label asp-for="@Model.gender"></label>
+         @foreach (var g in Model.genders)
+        {
+            <div class="form-check form-check-inline">
+                <input type="radio" asp-for="@Model.gender" value="@g.Value" />
+                @g.Text
+            </div>
+        }
+        
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.dob"></label>
+        <input asp-for="@Model.dob" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.mobilenumber"></label>
+        <input asp-for="@Model.mobilenumber" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.address"></label>
+        <input asp-for="@Model.address" class="form-control" />
+    </div>
+    <div class="row gx-0">
+     <div class="form-group col">
+        <label asp-for="@Model.city"  ></label>
+        <input asp-for="@Model.city" class="form-control" />
+    </div>
+     <div class="form-group col">
+        <label asp-for="@Model.state" ></label>
+        <input asp-for="@Model.state" class="form-control" />
+    </div>
+     <div class="form-group col">
+        <label asp-for="@Model.pincode"  ></label>
+        <input asp-for="@Model.pincode" class="form-control" />
+    </div>
+    </div>
+    <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+        <h6 class="text-danger">@Html.ValidationSummary()</h6>
+    </div>
+    <div class="row gx-0">
+        <button type="submit" class="col btn btn-success me-2">Save</button>
+        <a href="/Customers/List" class="col btn btn-default border-secondary ms-2" role="button">Cancel</a>
+    </div>
+</form>

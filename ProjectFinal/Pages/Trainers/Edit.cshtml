@@ -1,0 +1,61 @@
+﻿@page "{id}"
+@model ProjectFinal.Pages.Trainers.EditModel
+@{
+}
+<h3>Trainer to Edit @Model.Id</h3>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.trainername "></label>
+        <input asp-for="@Model.trainername" class="form-control" />
+    </div>
+      <div class="form-group">
+        <label asp-for="@Model.gender"></label>
+         @foreach (var g in Model.genders)
+        {
+            <div class="form-check form-check-inline">
+                <input type="radio" asp-for="@Model.gender" value="@g.Value" />
+                @g.Text
+            </div>
+        }
+        
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.dob"></label>
+        <input asp-for="@Model.dob" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.mobilenumber"></label>
+        <input asp-for="@Model.mobilenumber" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="@Model.address"></label>
+        <input asp-for="@Model.address" class="form-control" />
+    </div>
+    <div class="row gx-0">
+     <div class="form-group col">
+        <label asp-for="@Model.city"  ></label>
+        <input asp-for="@Model.city" class="form-control" />
+    </div>
+     <div class="form-group col">
+        <label asp-for="@Model.state" ></label>
+        <input asp-for="@Model.state" class="form-control" />
+    </div>
+     <div class="form-group col">
+        <label asp-for="@Model.pincode"  ></label>
+        <input asp-for="@Model.pincode" class="form-control" />
+    </div>
+     <div class="form-group col">
+        <label asp-for="@Model.yoe"  ></label>
+        <input asp-for="@Model.yoe" class="form-control" />
+    </div>
+    </div>    <div class="form-group">
+        <h6 class="text-success">@Model.SuccessMessage</h6>
+        <h6 class="text-danger">@Model.ErrorMessage</h6>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="/Trainers/List" class="btn btn-light" role="button">Cancel</a>
+    </div>
+
+    </form>

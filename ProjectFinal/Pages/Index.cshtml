@@ -1,0 +1,63 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (User.Identity.IsAuthenticated)
+{
+
+    <h4>@Model.ErrorMessage</h4>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="row"><center>
+            <div class="col-md-4 col-xl-4">
+                <div class="card bg-c-blue db-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Trainers</h6>
+                        <h2 class="text-end"><i class="fa fa-person float-start"></i><span>@Model.TrainerCount</span></h2>
+                        <p class="m-b-0">Active <span class="f-right"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xl-4">
+                <div class="card bg-c-green db-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Customers</h6>
+                        <h2 class="text-end"><i class="fa fa-person float-start"></i><span>@Model.CustomerCount</span></h2>
+                        <p class="m-b-0">Active <span class="float-end"></span></p>
+                    </div>
+                </div>
+            </div></center>
+        </div>
+    }
+    else
+    {
+        <div><center><h1>Welcome to eNoah Fitness</h1></center></div>
+    }
+
+}
+else
+{
+   
+    <center><h1>Welcome to GYM management system</h1></center>
+     <center><h5 >Please click here to <a href="/Login">Login</a> </h5></center>
+}
+
+
+<form method="post">
+    <div class="text-center">
+       
+
+    <div>
+        
+            
+                
+
+    
+
+            
+        
+    </div>
+</form>
+
